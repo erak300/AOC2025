@@ -1,6 +1,11 @@
 #Advent of Code 1
 
+using BenchmarkTools
 
+
+
+
+function  main()
 #Data import
 pwd();
 mystring = read("C:\\Users\\KaareIngwersen\\OneDrive - AERO MATERIALS GmbH\\Dokumente\\Julia Code\\AOC Inputs\\1.txt", String);
@@ -41,9 +46,9 @@ for i in 1:NN
     myint = parse(Int64, substring)
 
     if (direction=='R')
-        global start = start+myint
+        start = start+myint
     elseif (direction=='L')
-        global start = start-myint
+        start = start-myint
     else
         println("ERROR")
         println(direction)
@@ -53,7 +58,7 @@ for i in 1:NN
     #check if dial is at zero
     #divide by 100 and see remainder
     if ((start%100)==0)
-        global counter = counter + 1
+        counter = counter + 1
     end
 end
 println(start)
@@ -74,9 +79,9 @@ for i in 1:NN
 
     for j in 1:myint
         if (direction=='R')
-            global start = start+1
+            start = start+1
         elseif (direction=='L')
-            global start = start-1
+            start = start-1
         else
             println("ERROR")
             println(direction)
@@ -85,7 +90,7 @@ for i in 1:NN
         #check if dial is at zero
         #divide by 100 and see remainder
         if ((start%100)==0)
-            global counter = counter + 1
+            counter = counter + 1
         end
     end
 end
@@ -93,3 +98,7 @@ end
 println("Part two")
 println(start)
 println(counter)
+end
+
+
+@benchmark main()
