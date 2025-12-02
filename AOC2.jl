@@ -5,9 +5,7 @@ using BenchmarkTools
 function read_input()
     mystring = read(".\\input2.txt", String);
 
-    mystring="11-22,95-115,998-1012,1188511880-1188511890,222220-222224,
-1698522-1698528,446443-446449,38593856-38593862,565653-565659,
-824824821-824824827,2121212118-2121212124"
+    #mystring="11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-1698528,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124"
 
     #convert to two lists
     stringlist = split(mystring,",")
@@ -82,7 +80,7 @@ function bruteforce(startarray_s, endarray_s, combined_digits, NN_s)
     #for each array, make a for loop, generating the numbers between start and end array
     #check if false ID and add if it is
     #for checking, convert to string and see if first half equals second half
-        #would be much faster to do without string conversion
+        #would probably be much faster to do without string conversion
     summ = 0
     for i = 1:NN_s
         for number = startarray_s[i]:endarray_s[i]
@@ -104,28 +102,33 @@ function partTwo_Bruteforce(startarray, endarray, start_digits, end_digits, NN)
     #this will all be easier with strings, unfortunately
     summ=0
     for i=1:NN
-        print("i:")
-        println(i)
+        #print("i:")
+        #println(i)
         for number in startarray[i]:endarray[i]
             digits = ndigits(number)
             mystring = string(number)
+            #println(number)
+            flag = false #this is needed to not count a number twice, e.g. 2222 
             for j=1:digits÷2 #this loop controls the number of digits to compare. For 9, the max number is 4. for 10, its 5
-                if digits%j==0  #only run the next loop if number of digits to compare cleanly fits into the number
+                if (digits%j==0)&(flag==false)  #only run the next loop if number of digits to compare cleanly fits into the number
                     comparisons = digits÷j-1
                     istrue=true
-                    k=2
+                    k=1
                     while (k<=comparisons) & (istrue)
-                        if mystring[1:j]!=mystring[j*k:j*(k+1)-1]
+                        #println(mystring[1:j])
+                        #println(mystring[j*k+1:j*(k+1)])
+                        if ((mystring[1:j])!=(mystring[j*k+1:j*(k+1)]))
                             istrue=false
+                            #println("shouldbefalse")
                         end
                         k = k+1
                     end
-                    if istrue
-                        print("j:")
-                        println("j")
-                        println(number)
-                    
+                    if istrue   #the number is invalid
+                        #print("j:")
+                        #println(j)
+                        #println(number)
                         summ = summ+number
+                        flag = true #set true to not count a number twice
                     end
                 end
             end
@@ -147,5 +150,5 @@ end
 
 
 
-main()
-#@benchmark(main())
+#main()
+@benchmark(main())
