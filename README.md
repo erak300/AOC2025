@@ -14,6 +14,7 @@ Range (min … max):  643.722 ms … 754.964 ms  ┊ GC (min … max): 15.49% �
  Time  (mean ± σ):   667.447 ms ±  36.955 ms  ┊ GC (mean ± σ):  14.57% ± 2.57%
 
  Day 3 Timings: (only part 1)
-Range (min … max):  2.432 ms … 32.678 ms  ┊ GC (min … max): 0.00% … 87.55%
- Time  (median):     2.703 ms              ┊ GC (median):    0.00%
- Time  (mean ± σ):   3.122 ms ±  1.517 ms  ┊ GC (mean ± σ):  9.43% ± 14.64%
+ Range (min … max):  1.470 ms …  14.077 ms  ┊ GC (min … max):  0.00% …  0.00%
+ Time  (median):     1.779 ms               ┊ GC (median):     0.00%
+ Time  (mean ± σ):   2.062 ms ± 902.676 μs  ┊ GC (mean ± σ):  11.25% ± 16.47%
+
