@@ -12,3 +12,8 @@ BenchmarkTools.Trial: 16 samples with 1 evaluation per sample.
 Range (min … max):  643.722 ms … 754.964 ms  ┊ GC (min … max): 15.49% … 8.60%
  Time  (median):     657.140 ms               ┊ GC (median):    15.26%
  Time  (mean ± σ):   667.447 ms ±  36.955 ms  ┊ GC (mean ± σ):  14.57% ± 2.57%
+
+ Day 3 Timings: (only part 1)
+Range (min … max):  2.432 ms … 32.678 ms  ┊ GC (min … max): 0.00% … 87.55%
+ Time  (median):     2.703 ms              ┊ GC (median):    0.00%
+ Time  (mean ± σ):   3.122 ms ±  1.517 ms  ┊ GC (mean ± σ):  9.43% ± 14.64%
