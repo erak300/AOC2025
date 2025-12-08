@@ -23,3 +23,12 @@ Day 4 Timings:
  Time  (median):     19.702 ms              ┊ GC (median):    14.69%
  Time  (mean ± σ):   20.188 ms ±  2.154 ms  ┊ GC (mean ± σ):  16.65% ±  6.43%
 
+Day 6 Timings:
+ Range (min … max):  2.890 ms … 68.213 ms  ┊ GC (min … max): 0.00% …  0.00%
+ Time  (median):     3.834 ms              ┊ GC (median):    0.00%
+ Time  (mean ± σ):   4.330 ms ±  3.175 ms  ┊ GC (mean ± σ):  6.08% ± 11.69%
+
+ Day 7 Timings:
+ Range (min … max):  411.900 μs …  31.624 ms  ┊ GC (min … max): 0.00% … 0.00%
+ Time  (median):     465.900 μs               ┊ GC (median):    0.00%
+ Time  (mean ± σ):   564.060 μs ± 480.040 μs  ┊ GC (mean ± σ):  5.11% ± 9.39%

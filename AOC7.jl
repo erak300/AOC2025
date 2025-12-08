@@ -1,3 +1,4 @@
+using BenchmarkTools
 
 
 function ReadInput()
@@ -18,9 +19,9 @@ function ReadInput()
 .^.^.^.^.^...^.
 ..............."
 
-    #mystring = read(".\\data\\07.txt", String);
+    mystring = read(".\\data\\07.txt", String);
     sep = "\n"
-    #sep = "\r\n"
+    sep = "\r\n"
 
     stringlist = split(mystring, sep)
     #for effiency, make all the arrays just bool
@@ -56,8 +57,8 @@ function Part1(rays, dividers)
             end
         end
     end
-    println("Part 1")
-    println(splits)
+    #println("Part 1")
+    #println(splits)
 end
 
 
@@ -86,24 +87,32 @@ function Part2(rays, dividers)
     for step in 2:steps
         for col = 1:cols
             #If there is a ray above 
-            if rays_int[step-1, col] !== 0
+            if (rays_int[step-1, col] != 0)
                 if !dividers[step, col] #and no divider
-                    rays_int[step, col]=1#rays_int[step-1, col]   #extend ray downwards
+                    rays_int[step, col]+=rays_int[step-1, col]   #extend ray downwards and add to possibly existing
                 else    #split ray and add to existing number of rays
-                    #rays_int[step, col-1]=1#rays_int[step-1, col] #we probably will get a problem at the edges, just add padding above
-                    #rays_int[step, col+1]=1#rays_int[step-1, col]
+                    rays_int[step, col-1]+=rays_int[step-1, col] #we probably will get a problem at the edges, just add padding above
+                    rays_int[step, col+1]+=rays_int[step-1, col]
                 end
             end
         end
     end
 
-    println("Part 2")
-    rays_int
+    #println("Part 2")
+    #println(sum(rays_int[end,:]))
+    return(rays_int)
 end
 
 
 
+function wrapper()
+    rays, dividers = ReadInput()
+    Part1(rays, dividers);
 
-rays, dividers = ReadInput()
-Part1(rays, dividers)
-Part2(rays, dividers)
+    rays, dividers = ReadInput()
+    Part2(rays, dividers);
+end
+
+
+#wrapper()
+@benchmark(wrapper())
