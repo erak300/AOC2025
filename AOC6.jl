@@ -1,3 +1,4 @@
+using BenchmarkTools
 
 function readinput()
     mystring = "123 328  51 64 
@@ -96,9 +97,10 @@ function part2(char_array, digits, operators)
 end
 
 
-
-numbers_matrix, operators, char_array, digits = readinput()
-
-char_array
-part2(char_array, digits, operators)
-#part1(numbers_matrix, operators)
+function wrapper()
+    numbers_matrix, operators, char_array, digits = readinput()
+    #char_array
+    part2(char_array, digits, operators)
+    part1(numbers_matrix, operators)
+end
+@benchmark(wrapper())
